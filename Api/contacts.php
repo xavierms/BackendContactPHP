@@ -55,10 +55,19 @@
                 $_PUT["email"], 
                 $_PUT["phone"] 
             );
-            $contact-> putContact($_GET['id']);
-            $result["message"] =  "Update a user with the id:" .$_GET['id']
-            . ", information to update: ".json_encode($_PUT);
-            echo json_encode($result);
+            if (empty($_PUT["name"])){echo"The field name is required";} 
+            else if (empty($_PUT["lastName"])) {echo"The field lastName is required";}
+            else if (empty($_PUT["email"]) ) {echo"The field email is required";}
+            else if (empty($_PUT["phone"])){
+                echo"The field phone is required";
+            }  
+            else{
+                $contact-> putContact($_GET['id']);
+                $result["message"] =  "Update a user with the id:" .$_GET['id']
+                . ", information to update: ".json_encode($_PUT);
+                echo json_encode($result);
+            }
+        
             
         break;
         case 'DELETE':
