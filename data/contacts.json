@@ -3,7 +3,10 @@
         "name": "Xavier",
         "lastName": "Mejia",
         "email": "xavierams08@gmail.com",
-        "phone": "45678909876"
+        "phone": [
+            "7098904572", 
+            "217098904573"
+        ]
     },
     {
         "name": "Steve",
@@ -15,6 +18,6 @@
         "name": "Stephen",
         "lastname": "Hawking",
         "email": "shaw1@gmail.com",
-        "phone": "7098904572"
+        "phone": ["7098904572", "17098904573"]
     }
 ]

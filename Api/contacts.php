@@ -9,8 +9,7 @@
     //     ];
     //     return $model;
     //  }
-            
-        
+       
     include_once("../Classes/class-contact.php");
     switch($_SERVER['REQUEST_METHOD']){
         case 'POST':
@@ -24,15 +23,18 @@
                 $_POST["email"], 
                 $_POST["phone"] 
             );
-            if (empty($_POST["name"])){
-                echo"The field name is required";
-            }
+            if (empty($_POST["name"])){echo"The field name is required";} 
+            else if (empty($_POST["lastName"])) {echo"The field lastName is required";}
+            else if (empty($_POST["email"]) ) {echo"The field email is required";}
+            else if (empty($_POST["phone"])){
+                echo"The field phone is required";
+            }  
             else{
-
                 $contact->saveContact();
                 $result["message"] = "Save user, info:".json_encode($_POST);
                 echo json_encode($result);
             }
+            
         break;
         case 'GET':
            //isset() return true if the variable exist
