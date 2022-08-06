@@ -71,9 +71,15 @@
             
         break;
         case 'DELETE':
-            Contact::deleteContact($_GET['id']);
-            $result["message"] =  "Delete a user with the id: " .$_GET['id'];
-            echo json_encode($result);
+             if (empty($_GET["id"])){
+                echo"The id is required";
+            }else if ( $_GET["id"] > 0){
+
+                Contact::deleteContact($_GET['id']);
+                $result["message"] =  "Delete a user with the id: " .$_GET['id'];
+                echo json_encode($result);
+                
+            }
 
         break;
     }

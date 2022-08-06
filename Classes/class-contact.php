@@ -42,8 +42,13 @@
             public static function getContactId($id){
                 $contentFile = file_get_contents("../data/contacts.json");
                 $contacts = json_decode($contentFile, true);
-                
-                echo json_encode($contacts[$id]);
+                if (!isset($contacts[$id])) {
+                    echo "This id don't exist";
+                }
+                else{
+
+                    echo json_encode($contacts[$id]);
+                }
             }
             public function putContact($id){
                 $contentFile = file_get_contents("../data/contacts.json");
